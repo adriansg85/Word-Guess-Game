@@ -127,9 +127,10 @@
             "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga",
             "Trinidad & Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks & Caicos", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "Uruguay",
             "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands", "Yemen", "Zambia", "Zimbabwe"];
-        var nameSpaces = ["_", "_ _", "_ _ _", "_ _ _ _", "_ _ _ _ _", "_ _ _ _ _ _", "_ _ _ ", "_ _ ", "_ _ _ ", "_ _ ", "_ _ _ ",];
+        var nameSpaces = "";
         var numberOfGames = 0;
         var userGuess = "";
+        var computerGuess = "";
         var tie = 10;
         var win = 0;
         var loss = 0;
@@ -148,17 +149,67 @@
                 }
                 alert(longest);
                 alert(lgth);
+
         */
+        function hasWhiteSpace(s) {
+            return /\s/g.test(s);
+        }
 
         function randomChoice(randomCountry) {
-            var computerGuess = country_list[Math.floor(Math.random() * country_list.length)];
-            var countryNameLength = computerGuess.length;
-            var blankSpaces = (5 * countryNameLength)
-            document.getElementById("country-name").innerHTML = blankSpaces;
+            computerGuess = country_list[Math.floor(Math.random() * country_list.length)];
+            if (hasWhiteSpace(computerGuess) === true) {
+                //var newGuess = computerGuess.split(" ");
+                console.log("true2");
+            }
+
+
+            var spaces = "_ ";
+            nameSpaces = ("" + spaces.repeat(computerGuess.length))
+            console.log(computerGuess)
+            document.getElementById("country-name").innerHTML = nameSpaces;
+
         }
+
+
 
         randomChoice();
 
+        //split the names
+
+
+        var words = computerGuess.split(' ');
+        console.log(words.length);
+
+        //test the names for whitespaces
+        console.log(hasWhiteSpace(computerGuess));
+
+
+        //for statement for testing
+        for (var i = 1; i < words.length; i++) {
+
+            var spaces = "_ ";
+            nameSpaces = ("." + spaces.repeat(computerGuess.length))
+            console.log(nameSpaces)
+        }
+
+
+
+
+        /* For Loop Elements Repeats Country Name Times.
+        for (var i = 1; i < computerGuess.length; i++) {
+
+            var spaces = "_ ";
+            nameSpaces = ("." + spaces.repeat(computerGuess.length))
+            console.log(nameSpaces[i])
+        }
+
+        Display the alerts to the user pending on alert length.
+        for (var j = 0; j < favTVshows.length; j++) {
+
+            // Alerts of tv show in the current position.
+            alert(favTVshows[j]);
+        }
+        */
 
         document.onkeyup = function (event) {
             userGuess = event.key;
