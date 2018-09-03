@@ -69,9 +69,9 @@
 
                     <div class="row">
 
-                        <div class="col-md-2"></div>
+                        <div class="col-md-1"></div>
 
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <br>
                             <h2>Country Name: <span id="country-name"><strong></strong></span></h2>
                             <br>
@@ -79,7 +79,7 @@
 
                         </div>
 
-                        <div class="col-md-2"></div>
+                        <div class="col-md-1"></div>
 
                     </div>
 
@@ -162,14 +162,21 @@
                 console.log("true2");
             }
 
-
+            // computerGuess.length = x
             var spaces = "_ ";
             nameSpaces = ("" + spaces.repeat(computerGuess.length))
             console.log(computerGuess)
             document.getElementById("country-name").innerHTML = nameSpaces;
+            var wordSplit = computerGuess;
+            for (var i = 0; i < wordSplit.length; i++) {
+            console.log(wordSplit.charAt(i));
+            
+            
+            }
 
         }
 
+      
 
 
         randomChoice();
@@ -179,17 +186,39 @@
 
         var words = computerGuess.split(' ');
         console.log(words.length);
+        console.log(words[0]);
+        console.log(words[1]);
+        console.log(words[2]);
+        console.log(words[0].length);
+        //console.log(words[1].length);
+        //console.log(words[2].length);
 
         //test the names for whitespaces
         console.log(hasWhiteSpace(computerGuess));
 
 
         //for statement for testing
-        for (var i = 1; i < words.length; i++) {
-
+        for (var i = 0; i < words.length; i++) {
+            var blankSpace = " ";
             var spaces = "_ ";
-            nameSpaces = ("." + spaces.repeat(computerGuess.length))
-            console.log(nameSpaces)
+            var wordCount = words[i];
+            nameSpaces = ("" + spaces.repeat(wordCount.length))
+            
+            console.log(nameSpaces);
+            console.log(nameSpaces[0]);
+            console.log(nameSpaces[2]);
+            console.log(nameSpaces[4]);
+            console.log(nameSpaces[6]);
+            console.log(nameSpaces[8]);
+            console.log(nameSpaces[10]);
+            console.log(nameSpaces[12]);
+            console.log(nameSpaces[14]);
+            console.log(wordCount);
+            console.log(words.length);
+            if (words.length > 1 && words.length > i+1 ) {
+                console.log(blankSpace);
+            }
+            
         }
 
 
