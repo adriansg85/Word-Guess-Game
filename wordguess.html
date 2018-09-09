@@ -140,6 +140,7 @@
         var res = "";
         var addingString = "";
         var letterArr = [];
+        var spacesArr = [];
 
         //function to determine if a string is lower or uppercase
         function isLower(character) {
@@ -148,8 +149,8 @@
         //function to guess a random country
         function randomChoice2(randomCountry) {
             //Choose a random Country from the country_list
-            //computerGuess = country_list[Math.floor(Math.random() * country_list.length)];
-            computerGuess = "United";
+            computerGuess = country_list[Math.floor(Math.random() * country_list.length)];
+            //computerGuess = "test";
 
             //change the string to lower case for comparison
             lowerGuess = computerGuess.toLowerCase();
@@ -171,142 +172,156 @@
         //verify the amount of words in the country name and list the spaces
 
         //only one word
-        if (words.length === 1) {
+        function wordPlacement() {
 
-            //define first word
-            var wordOne = words[0]
+            if (words.length === 1) {
 
-            //determine the amount of spaces
-            for (var i = 0; i < wordOne.length; i++) {
-                var blankSpace = " ";
-                var spaces = "_ ";
-                nameSpaces = ("" + spaces.repeat(wordOne.length))
+                //define first word
+                var wordOne = words[0]
 
-                //determine if the letter has been pressed
+                //determine the amount of spaces
                 for (var i = 0; i < wordOne.length; i++) {
-                    if (letterArr[i] === nameSpaces) {
+                    var blankSpace = " ";
+                    var spaces = "_ ";
+                    nameSpaces = ("" + spaces.repeat(wordOne.length))
+
+                    /*compare arrays and strings to determine if the letter has been pressed
+                    for (var i = 0; i < wordOne.length; i++) {
+                        for (var j = 0; j < letterArr.length; j++) {
+                            if (letterArr[j] === wordOne.charAt(i)) {
+                                var selectLetter = (wordOne.charAt(i));
+                                var index1 = wordOne.indexOf(selectLetter[0]);
+                                spacesArr += (wordOne[i]);
+
+                                nameSpaces = ("" + spaces.repeat(wordOne.length) + selectLetter);
+                                console.log(selectLetter);
+                                console.log(index1);
+                            }
+                        }
 
                     }
+                    */
+
+                    //display spaces on document
+                    document.getElementById("country-name").innerHTML = nameSpaces;
+                }
+            }
+
+            //two words
+            else if (words.length === 2) {
+
+                //define first word
+                var wordOne = words[0]
+
+                //determine the amount of spaces
+                for (var i = 0; i < wordOne.length; i++) {
+                    var spaces = "_ ";
+                    nameSpaces = ("" + spaces.repeat(wordOne.length))
+
+                }
+
+                //define second word
+                var wordTwo = words[1]
+
+                //determine the amount of spaces
+                for (var i = 0; i < wordTwo.length; i++) {
+                    var spaces = "_ ";
+                    nameSpaces2 = ("" + spaces.repeat(wordTwo.length))
 
                 }
 
                 //display spaces on document
-                document.getElementById("country-name").innerHTML = nameSpaces;
+                document.getElementById("country-name").innerHTML = nameSpaces + "&nbsp &nbsp" + nameSpaces2;
+            }
+
+            //three words
+            else if (words.length === 3) {
+
+                //define first word
+                var wordOne = words[0]
+
+                //determine the amount of spaces
+                for (var i = 0; i < wordOne.length; i++) {
+                    var spaces = "_ ";
+                    nameSpaces = ("" + spaces.repeat(wordOne.length))
+
+                }
+
+                //define second word
+                var wordTwo = words[1]
+
+                //determine the amount of spaces
+                for (var i = 0; i < wordTwo.length; i++) {
+                    var spaces = "_ ";
+                    nameSpaces2 = ("" + spaces.repeat(wordTwo.length))
+
+                }
+
+                //define third word
+                var wordThree = words[2]
+
+                //determine the amount of spaces
+                for (var i = 0; i < wordThree.length; i++) {
+                    var spaces = "_ ";
+                    nameSpaces3 = ("" + spaces.repeat(wordThree.length))
+
+                }
+
+                //display spaces on document
+                document.getElementById("country-name").innerHTML = nameSpaces + "&nbsp &nbsp" + nameSpaces2 + "&nbsp &nbsp" + nameSpaces3;
+
+            }
+
+            //four words
+            else if (words.length === 4) {
+
+                //define first word
+                var wordOne = words[0]
+
+                //determine the amount of spaces
+                for (var i = 0; i < wordOne.length; i++) {
+                    var spaces = "_ ";
+                    nameSpaces = ("" + spaces.repeat(wordOne.length))
+
+                }
+
+                //define second word
+                var wordTwo = words[1]
+
+                //determine the amount of spaces
+                for (var i = 0; i < wordTwo.length; i++) {
+                    var spaces = "_ ";
+                    nameSpaces2 = ("" + spaces.repeat(wordTwo.length))
+
+                }
+
+                //define third word
+                var wordThree = words[2]
+
+                //determine the amount of spaces
+                for (var i = 0; i < wordThree.length; i++) {
+                    var spaces = "_ ";
+                    nameSpaces3 = ("" + spaces.repeat(wordThree.length))
+
+                }
+
+                //define fourth word
+                var wordFour = words[3]
+
+                //determine the amount of spaces
+                for (var i = 0; i < wordFour.length; i++) {
+                    var spaces = "_ ";
+                    nameSpaces4 = ("" + spaces.repeat(wordFour.length))
+
+                }
+
+                //display spaces on document
+                document.getElementById("country-name").innerHTML = nameSpaces + "&nbsp &nbsp" + nameSpaces2 + "&nbsp &nbsp" + nameSpaces3 + "&nbsp &nbsp" + nameSpaces4;
+
             }
         }
 
-        //two words
-        else if (words.length === 2) {
-
-            //define first word
-            var wordOne = words[0]
-
-            //determine the amount of spaces
-            for (var i = 0; i < wordOne.length; i++) {
-                var spaces = "_ ";
-                nameSpaces = ("" + spaces.repeat(wordOne.length))
-
-            }
-
-            //define second word
-            var wordTwo = words[1]
-
-            //determine the amount of spaces
-            for (var i = 0; i < wordTwo.length; i++) {
-                var spaces = "_ ";
-                nameSpaces2 = ("" + spaces.repeat(wordTwo.length))
-
-            }
-
-            //display spaces on document
-            document.getElementById("country-name").innerHTML = nameSpaces + "&nbsp &nbsp" + nameSpaces2;
-        }
-
-        //three words
-        else if (words.length === 3) {
-
-            //define first word
-            var wordOne = words[0]
-
-            //determine the amount of spaces
-            for (var i = 0; i < wordOne.length; i++) {
-                var spaces = "_ ";
-                nameSpaces = ("" + spaces.repeat(wordOne.length))
-
-            }
-
-            //define second word
-            var wordTwo = words[1]
-
-            //determine the amount of spaces
-            for (var i = 0; i < wordTwo.length; i++) {
-                var spaces = "_ ";
-                nameSpaces2 = ("" + spaces.repeat(wordTwo.length))
-
-            }
-
-            //define third word
-            var wordThree = words[2]
-
-            //determine the amount of spaces
-            for (var i = 0; i < wordThree.length; i++) {
-                var spaces = "_ ";
-                nameSpaces3 = ("" + spaces.repeat(wordThree.length))
-
-            }
-
-            //display spaces on document
-            document.getElementById("country-name").innerHTML = nameSpaces + "&nbsp &nbsp" + nameSpaces2 + "&nbsp &nbsp" + nameSpaces3;
-
-        }
-
-        //four words
-        else if (words.length === 4) {
-
-            //define first word
-            var wordOne = words[0]
-
-            //determine the amount of spaces
-            for (var i = 0; i < wordOne.length; i++) {
-                var spaces = "_ ";
-                nameSpaces = ("" + spaces.repeat(wordOne.length))
-
-            }
-
-            //define second word
-            var wordTwo = words[1]
-
-            //determine the amount of spaces
-            for (var i = 0; i < wordTwo.length; i++) {
-                var spaces = "_ ";
-                nameSpaces2 = ("" + spaces.repeat(wordTwo.length))
-
-            }
-
-            //define third word
-            var wordThree = words[2]
-
-            //determine the amount of spaces
-            for (var i = 0; i < wordThree.length; i++) {
-                var spaces = "_ ";
-                nameSpaces3 = ("" + spaces.repeat(wordThree.length))
-
-            }
-
-            //define fourth word
-            var wordFour = words[3]
-
-            //determine the amount of spaces
-            for (var i = 0; i < wordFour.length; i++) {
-                var spaces = "_ ";
-                nameSpaces4 = ("" + spaces.repeat(wordFour.length))
-
-            }
-
-            //display spaces on document
-            document.getElementById("country-name").innerHTML = nameSpaces + "&nbsp &nbsp" + nameSpaces2 + "&nbsp &nbsp" + nameSpaces3 + "&nbsp &nbsp" + nameSpaces4;
-
-        }
+        wordPlacement()
 
         //for statement for testing
         /*
@@ -340,8 +355,7 @@
                 var searchTerm = event.key;
                 letterArr += (event.key);
                 console.log(letterArr);
-
-
+                wordPlacement()
 
                 //Define variables to determine if the letter is repeated in the name
                 var indexOfFirst = lowerGuess.indexOf(searchTerm);
@@ -390,7 +404,7 @@
             //If the key pressed is not on the country name then we must check how many opportunites you have left
             else {
 
-                console.log('you lose');
+                console.log('wrong choice');
 
                 //if you still have opportunities then we must substract one opportunity and print the new result
                 if (opportunities !== 0) {
